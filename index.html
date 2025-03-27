@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Circle Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#205781",
+              secondary: "#2D658D",
+              tertiary: "#2E5492",
+              accent: "#7AB2D3",
+              background: "#FBFBFB",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Remove default margin to avoid extra white space */
+      body {
+        margin: 0;
+      }
+      /* Custom modal animation */
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .animate-fadeIn {
+        animation: fadeInScale 0.5s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-background">
+    <!-- Header (always transparent) -->
+    <header
+      id="header"
+      class="fixed top-0 w-full z-50 bg-transparent transition-all duration-500"
+    >
+      <div
+        class="container mx-auto flex items-center justify-between px-8 py-4"
+      >
+        <div class="flex items-center space-x-2">
+          <img src="/logo.png" alt="" class="h-8" />
+          <span
+            id="logoText"
+            class="font-bold text-xl transition-colors duration-500 text-white"
+            >Study Circle</span
+          >
+        </div>
+        <div class="flex items-center space-x-4">
+          <nav class="hidden md:flex space-x-6">
+            <a
+              href="#home"
+              class="nav-link transition-colors duration-500 text-white hover:text-accent"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link transition-colors duration-500 text-white hover:text-accent"
+              >About</a
+            >
+          </nav>
+          <button
+            id="signupHeader"
+            class="bg-accent text-primary font-semibold px-4 py-2 rounded hover:bg-white transition-colors duration-500"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Home Section (Hero) -->
+      <section
+        id="home"
+        class="min-h-screen flex items-center bg-tertiary pt-20"
+      >
+        <div
+          class="container mx-auto px-8 flex flex-col md:flex-row items-center"
+        >
+          <div class="md:w-1/2 text-white transition-colors duration-500">
+            <h1 class="text-4xl font-bold mb-4">
+              Learn together. Grow forever.
+            </h1>
+            <p class="mb-6 text-lg">
+              Study Circle is a platform designed to foster collaborative
+              learning and community growth. Join us to engage with peers, share
+              resources, and excel together.
+            </p>
+            <button
+              id="signupButton"
+              class="bg-accent text-primary font-semibold px-6 py-3 rounded hover:bg-white transition-colors duration-500"
+            >
+              Sign Up
+            </button>
+          </div>
+          <div class="md:w-1/2 mt-8 md:mt-0">
+            <!-- Replace with your own image URL -->
+            <img
+              src="/hero_img.png"
+              alt="Study Circle Image"
+              class="w-full md:w-auto"
+              style="max-width: 750px"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section
+        id="about"
+        class="min-h-screen bg-accent bg-opacity-20 flex items-center"
+      >
+        <div class="container mx-auto px-8">
+          <h2 class="text-3xl font-bold mb-4" style="color: #2e5492">
+            About Study Circle
+          </h2>
+          <p class="text-lg mb-6">
+            At Study Circle, our mission is to create a space where learners can
+            come together, exchange ideas, and support each other in their
+            academic journey. With interactive tools and community-driven
+            features, learning becomes a collaborative and enjoyable experience.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal Sign Up Form -->
+    <div
+      id="signupModal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden transition-opacity duration-500"
+    >
+      <div class="bg-white rounded-lg p-6 w-11/12 max-w-md">
+        <h3 class="text-2xl font-bold mb-4" style="color: #205781">Sign Up</h3>
+        <form id="modalForm">
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2" for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-secondary"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2" for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-secondary"
+            />
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="button"
+              id="closeModal"
+              class="mr-4 text-secondary hover:underline"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="bg-secondary text-white px-4 py-2 rounded hover:bg-tertiary transition-colors duration-500"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-tertiary text-white py-4">
+      <div class="container mx-auto px-8 flex justify-center space-x-6">
+        <a href="#" class="hover:text-accent transition-colors duration-500"
+          >Facebook</a
+        >
+        <a href="#" class="hover:text-accent transition-colors duration-500"
+          >TikTok</a
+        >
+        <a href="#" class="hover:text-accent transition-colors duration-500"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Modal functionality
+      const signupButton = document.getElementById("signupButton");
+      const signupHeader = document.getElementById("signupHeader");
+      const signupModal = document.getElementById("signupModal");
+      const closeModal = document.getElementById("closeModal");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const logoText = document.getElementById("logoText");
+
+      function openModal() {
+        signupModal.classList.remove("hidden");
+        // Restart the animation on modal content
+        const modalContent = signupModal.querySelector("div");
+        modalContent.classList.remove("animate-fadeIn");
+        // Force reflow to restart animation
+        void modalContent.offsetWidth;
+        modalContent.classList.add("animate-fadeIn");
+      }
+
+      function hideModal() {
+        signupModal.classList.add("hidden");
+      }
+
+      signupButton.addEventListener("click", openModal);
+      signupHeader.addEventListener("click", openModal);
+      closeModal.addEventListener("click", hideModal);
+
+      // Update header text colors based on current section (header background remains transparent)
+      const sections = document.querySelectorAll("section");
+
+      window.addEventListener("scroll", () => {
+        let currentSection = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          if (pageYOffset >= sectionTop) {
+            currentSection = section.getAttribute("id");
+          }
+        });
+
+        if (currentSection === "home") {
+          navLinks.forEach((link) => {
+            link.classList.remove("text-primary");
+            link.classList.add("text-white");
+          });
+          logoText.classList.remove("text-primary");
+          logoText.classList.add("text-white");
+        } else if (currentSection === "about") {
+          navLinks.forEach((link) => {
+            link.classList.remove("text-white");
+            link.classList.add("text-primary");
+          });
+          logoText.classList.remove("text-white");
+          logoText.classList.add("text-primary");
+        }
+      });
+    </script>
+  </body>
+</html>
